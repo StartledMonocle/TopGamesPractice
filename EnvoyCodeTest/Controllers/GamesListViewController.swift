@@ -15,7 +15,7 @@ class GamesListViewController: UIViewController, UICollectionViewDelegate, UICol
     var isInitialRequestComplete = false
 
     @IBOutlet weak var gamesCollectionView: UICollectionView!
-    
+    //test
     override func viewDidLoad() {
         super.viewDidLoad()
         
