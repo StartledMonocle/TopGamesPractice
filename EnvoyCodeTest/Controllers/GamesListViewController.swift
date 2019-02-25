@@ -15,7 +15,7 @@ class GamesListViewController: UIViewController, UICollectionViewDelegate, UICol
     var isInitialRequestComplete = false
 
     @IBOutlet weak var gamesCollectionView: UICollectionView!
-    //test
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,18 +80,36 @@ class GamesListViewController: UIViewController, UICollectionViewDelegate, UICol
         if GamesListViewController.gamesArray.count > 0 {
         
             if let game = GamesListViewController.gamesArray[indexPath.row] {
-                
+        
                 DispatchQueue.global().async {
-                    if let coverArtURL = game.coverArtURL {
-                        if let data = try? Data(contentsOf: coverArtURL) {
+                    
+                    if let imageURL = game.imageURL {
+                        
+                        if let data = try? Data(contentsOf: imageURL) {
+                            
                             if let image = UIImage(data: data) {
+                                
                                 DispatchQueue.main.async {
-                                    cell.gameCover.image = image
-                                    cell.gameTitle.text = game.title
-                                    cell.numOfPeopleWatchingLabel.text = "\(game.viewers) viewers"
+                                    
+                                    let gameModel = Game(id: game.id, name: game.name, image: imageURL, viewerCount: game.viewerCount)
+                                    let gameViewModel = GameViewModel(game: gameModel)
+                                    
+                                    cell.image.image = image
+                                    cell.name.text = gameViewModel.name
+                                    cell.viewersCount.text = gameViewModel.viewerCountText
                                 }
                             }
                         }
+                    }
+                    else {  //game imageURL doesn't exist, just display game name and viewer count
+                        
+                        DispatchQueue.main.async {
+                            
+                            let gameModel = Game(id: game.id, name: game.name, image: nil, viewerCount: game.viewerCount)
+                            let gameViewModel = GameViewModel(game: gameModel)
+                            
+                            cell.name.text = gameViewModel.name
+                            cell.viewersCount.text = gameViewModel.viewerCountText
                     }
                 }
             }
@@ -99,9 +117,11 @@ class GamesListViewController: UIViewController, UICollectionViewDelegate, UICol
         else {
             
             Network().requestGame(forIndex: indexPath, gamesArray: GamesListViewController.gamesArray)
+            }
         }
         
-        return cell
+    return cell
+    
     }
 
     

@@ -44,11 +44,11 @@ class Network {
     }
     
     /**
-     Generates URL for a particular game located at a given index
+     Generates URL for game located at index
      
-     - Parameter index: integer of index for the game we want the URL to be generated for
+     - Parameter index: index of game
 
-     - Returns: URL which will return JSON info for the game at the particular index
+     - Returns: URL for game info JSON
      */
     func urlComponents(index: Int) -> URL {
         
@@ -58,11 +58,11 @@ class Network {
     }
     
     /**
-     Generates a URLSessionDataTask to obtain JSON from a particular URL. Once the data is obtained, a 'Game' object will be generated using the JSON data and added to 'GameListViewControllers' data source
+     Generates a URLSessionDataTask to obtain JSON from URL. Once data is obtained, a 'Game' object will be created using the JSON data and added to 'GameListViewControllers' data source
      
-     - Parameter index: index corresponding to the position in the list 'Top Games' of the game we want the JSON data for
+     - Parameter index: index of game
 
-     - Returns: URLSessionDataTask which will obtain JSON data for the game at the index we pass in as a param
+     - Returns: URLSessionDataTask to obtain JSON data for the game at the index
      */
     func getTask(forIndex: IndexPath) -> URLSessionDataTask {
         
@@ -70,10 +70,10 @@ class Network {
         
         return URLSession.shared.dataTask(with: url) { data, response, error in
             
-            var title : String = ""
-            var viewers = 0
-            var gameID = 0
-            var coverArtURL : URL? = nil
+            var _name : String = ""
+            var _viewersCount = 0
+            var _id : Int32 = 0
+            var _imageURL : URL? = nil
             
             do {
                 if let data = data,
@@ -85,37 +85,33 @@ class Network {
                             
                             if let name = game["name"] as? String {
                                 
-                                title = name
+                                _name = name
                             }
                             
-                            if let id = game["_id"] as? Int {
+                            if let id = game["_id"] as? Int32 {
                                 
-                                gameID = id
+                                _id = id
                             }
                             
                             if let numOfViewers = games["viewers"] as? Int {
                                 
-                                viewers = numOfViewers
+                                _viewersCount = numOfViewers
                             }
                             
                             if let box = game["box"] as? [String:Any] {
                                 
                                 if let large = box["large"] as? String {
                                     
-                                    coverArtURL = (NSURL(string: large)! as URL)
+                                    _imageURL = (NSURL(string: large)! as URL)
                                 }
                             }
                             
                             DispatchQueue.main.async() {
 
-                                var game = Game()
-                                game.coverArtURL = coverArtURL!
-                                game.title = title
-                                game.id = gameID
-                                game.viewers = viewers
+                                let game = Game(id: _id, name: _name, image: _imageURL!, viewerCount: _viewersCount)
 
                                 var gameAlreadyExistsInArray = false
-                                if GamesListViewController.gamesArray.contains(where: { $0?.title == title }) {
+                                if GamesListViewController.gamesArray.contains(where: { $0?.name == _name }) {
                                     gameAlreadyExistsInArray = true
                                 }
                                 
@@ -136,11 +132,11 @@ class Network {
     }
     
     /**
-     Creates a URLSessionDataTask which obtains the 'Game' info we want from Twitch. Task is added to an array which will run one at a time
+     Creates a URLSessionDataTask which obtains 'Game' info we want from Twitch. Task is added to an array which will run sequentially
      
-     - Parameter index: index corresponding to the position in the list 'Top Games' of the game we want the JSON data for
+     - Parameter index: index of game
      
-     gamesArray: Array containing the games to be displayed in 'GameListViewControllers' collection view
+     gamesArray: Array containing games to be displayed in 'GameListViewControllers' collection view
      */
     func requestGame(forIndex: IndexPath, gamesArray: [Game?]) {
         let task: URLSessionDataTask

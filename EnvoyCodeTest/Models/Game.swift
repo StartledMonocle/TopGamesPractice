@@ -7,20 +7,21 @@
 //
 
 import Foundation
+import UIKit
 
-struct Game {
+public class Game {
     
-    var coverArtURL: URL?
-    var title: String
-    var id: Int
-    var viewers: Int
+    public var id: Int32
+    public var name: String
+    public var imageURL: URL?
+    public var viewerCount: Int
     
-    init() {
+    public init(id: Int32, name: String, image: URL?, viewerCount: Int) {
         
-        coverArtURL = nil
-        title = ""
-        id = 0
-        viewers = 0
+        self.id = id
+        self.name = name
+        self.imageURL = image
+        self.viewerCount = viewerCount
     }
 }
 

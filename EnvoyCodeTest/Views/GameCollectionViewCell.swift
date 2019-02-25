@@ -10,9 +10,9 @@ import UIKit
 
 class GameCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var gameCover: UIImageView!
-    @IBOutlet weak var gameTitle: UILabel!
-    @IBOutlet weak var numOfPeopleWatchingLabel: UILabel!
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var viewersCount: UILabel!
     
     override func awakeFromNib() {
         

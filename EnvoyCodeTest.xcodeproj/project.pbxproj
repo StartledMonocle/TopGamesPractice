@@ -14,6 +14,7 @@
 		03206AA71F948F3000FFB69A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03206AA51F948F3000FFB69A /* LaunchScreen.storyboard */; };
 		03206AB21F948F3000FFB69A /* EnvoyCodeTest-Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03206AB11F948F3000FFB69A /* EnvoyCodeTest-Tests.swift */; };
 		45157C8C22138475008F38A0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45157C8B22138475008F38A0 /* Network.swift */; };
+		455E3C65222450D000486C27 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E3C64222450D000486C27 /* GameViewModel.swift */; };
 		4584038D220CDD7E00983F2B /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584038B220CDD7E00983F2B /* GameCollectionViewCell.swift */; };
 		4584038E220CDD7E00983F2B /* GameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4584038C220CDD7E00983F2B /* GameCollectionViewCell.xib */; };
 		45840397220FBE3100983F2B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45840396220FBE3100983F2B /* Game.swift */; };
@@ -41,6 +42,7 @@
 		03206AB11F948F3000FFB69A /* EnvoyCodeTest-Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvoyCodeTest-Tests.swift"; sourceTree = "<group>"; };
 		03206AB31F948F3000FFB69A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45157C8B22138475008F38A0 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		455E3C64222450D000486C27 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		4584038B220CDD7E00983F2B /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
 		4584038C220CDD7E00983F2B /* GameCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCollectionViewCell.xib; sourceTree = "<group>"; };
 		45840396220FBE3100983F2B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -85,13 +87,14 @@
 		03206A9B1F948F3000FFB69A /* EnvoyCodeTest */ = {
 			isa = PBXGroup;
 			children = (
-				03206AA81F948F3000FFB69A /* Info.plist */,
 				03206A9C1F948F3000FFB69A /* AppDelegate.swift */,
 				03206AA31F948F3000FFB69A /* Assets.xcassets */,
-				03206AA51F948F3000FFB69A /* LaunchScreen.storyboard */,
-				45157C8A22138460008F38A0 /* Network */,
 				4584036E220B66A000983F2B /* Controllers */,
+				03206AA81F948F3000FFB69A /* Info.plist */,
+				03206AA51F948F3000FFB69A /* LaunchScreen.storyboard */,
 				45840395220FBE1A00983F2B /* Models */,
+				45157C8A22138460008F38A0 /* Network */,
+				455E3C632224500700486C27 /* ViewModels */,
 				45840371220B670500983F2B /* Views */,
 			);
 			path = EnvoyCodeTest;
@@ -112,6 +115,14 @@
 				45157C8B22138475008F38A0 /* Network.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		455E3C632224500700486C27 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				455E3C64222450D000486C27 /* GameViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		4584036E220B66A000983F2B /* Controllers */ = {
@@ -244,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				455E3C65222450D000486C27 /* GameViewModel.swift in Sources */,
 				45157C8C22138475008F38A0 /* Network.swift in Sources */,
 				4584038D220CDD7E00983F2B /* GameCollectionViewCell.swift in Sources */,
 				03206A9F1F948F3000FFB69A /* GamesListViewController.swift in Sources */,

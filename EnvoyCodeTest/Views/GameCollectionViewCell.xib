@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -56,9 +52,9 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
-                <outlet property="gameCover" destination="F5d-GA-84g" id="xj4-gz-Y5n"/>
-                <outlet property="gameTitle" destination="4RP-kv-nl6" id="g0n-Yf-S2X"/>
-                <outlet property="numOfPeopleWatchingLabel" destination="J1U-i1-2cp" id="bfA-fK-7cS"/>
+                <outlet property="image" destination="F5d-GA-84g" id="xj4-gz-Y5n"/>
+                <outlet property="name" destination="4RP-kv-nl6" id="g0n-Yf-S2X"/>
+                <outlet property="viewersCount" destination="J1U-i1-2cp" id="bfA-fK-7cS"/>
             </connections>
             <point key="canvasLocation" x="145.59999999999999" y="48.575712143928037"/>
         </collectionViewCell>
