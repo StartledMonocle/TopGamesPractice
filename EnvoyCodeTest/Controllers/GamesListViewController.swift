@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GamesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDataSourcePrefetching {
+class GamesListViewController: UIViewController {
     
     static var gamesArray = [Game?]()
     var totalGamesCount : Int = 0
@@ -52,9 +52,29 @@ class GamesListViewController: UIViewController, UICollectionViewDelegate, UICol
         }
     }
     
+    // MARK: UI Set up
     
-    // Mark: UICollectionView Delegate methods
+    func setCollectionViewFlowLayout() {
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: 110, height: 180)
+        flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
+        flowLayout.minimumInteritemSpacing = 0.0
+        self.gamesCollectionView.collectionViewLayout = flowLayout
+    }
     
+    
+    // MARK: Notification Center
+    
+    @objc func gameAdded(notification: Notification) {
+        
+        let indexPath = notification.object as! IndexPath
+        self.gamesCollectionView.reloadItems(at: [indexPath])
+    }
+}
+
+extension GamesListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDataSourcePrefetching {
+        
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         return self.isInitialRequestComplete ? 1 : 0
@@ -79,19 +99,19 @@ class GamesListViewController: UIViewController, UICollectionViewDelegate, UICol
         let cell = gamesCollectionView.dequeueReusableCell(withReuseIdentifier: "GameCollectionViewCell", for: indexPath) as! GameCollectionViewCell
         
         if GamesListViewController.gamesArray.count > 0, let game = GamesListViewController.gamesArray[indexPath.row] {
-        
+            
             DispatchQueue.global().async {
                 
                 if let imageURL = game.imageURL, let data = try? Data(contentsOf: imageURL), let image = UIImage(data: data) {
                     
-                        DispatchQueue.main.async {
-                            
-                            let gameModel = Game(id: game.id, name: game.name, image: imageURL, viewerCount: game.viewerCount)
-                            let gameViewModel = GameViewModel(game: gameModel)
-                            
-                            cell.image.image = image
-                            cell.name.text = gameViewModel.name
-                            cell.viewerCount.text = gameViewModel.viewerCountText
+                    DispatchQueue.main.async {
+                        
+                        let gameModel = Game(id: game.id, name: game.name, image: imageURL, viewerCount: game.viewerCount)
+                        let gameViewModel = GameViewModel(game: gameModel)
+                        
+                        cell.image.image = image
+                        cell.name.text = gameViewModel.name
+                        cell.viewerCount.text = gameViewModel.viewerCountText
                     }
                 }
                 else {  //game image doesn't exist, just display game name and viewer count
@@ -113,27 +133,5 @@ class GamesListViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         
         return cell
-    }
-        
-    
-    
-    // MARK: UI Set up
-    
-    func setCollectionViewFlowLayout() {
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: 110, height: 180)
-        flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
-        flowLayout.minimumInteritemSpacing = 0.0
-        self.gamesCollectionView.collectionViewLayout = flowLayout
-    }
-    
-    
-    // MARK: Notification Center
-    
-    @objc func gameAdded(notification: Notification) {
-        
-        let indexPath = notification.object as! IndexPath
-        self.gamesCollectionView.reloadItems(at: [indexPath])
     }
 }
