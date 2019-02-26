@@ -71,7 +71,7 @@ class Network {
         return URLSession.shared.dataTask(with: url) { data, response, error in
             
             var _name : String = ""
-            var _viewersCount = 0
+            var _viewerCount = 0
             var _id : Int32 = 0
             var _imageURL : URL? = nil
             
@@ -95,7 +95,7 @@ class Network {
                             
                             if let numOfViewers = games["viewers"] as? Int {
                                 
-                                _viewersCount = numOfViewers
+                                _viewerCount = numOfViewers
                             }
                             
                             if let box = game["box"] as? [String:Any] {
@@ -108,7 +108,7 @@ class Network {
                             
                             DispatchQueue.main.async() {
 
-                                let game = Game(id: _id, name: _name, image: _imageURL!, viewerCount: _viewersCount)
+                                let game = Game(id: _id, name: _name, image: _imageURL!, viewerCount: _viewerCount)
 
                                 var gameAlreadyExistsInArray = false
                                 if GamesListViewController.gamesArray.contains(where: { $0?.name == _name }) {

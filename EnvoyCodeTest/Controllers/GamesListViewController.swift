@@ -91,7 +91,7 @@ class GamesListViewController: UIViewController, UICollectionViewDelegate, UICol
                             
                             cell.image.image = image
                             cell.name.text = gameViewModel.name
-                            cell.viewersCount.text = gameViewModel.viewerCountText
+                            cell.viewerCount.text = gameViewModel.viewerCountText
                     }
                 }
                 else {  //game image doesn't exist, just display game name and viewer count
@@ -102,7 +102,7 @@ class GamesListViewController: UIViewController, UICollectionViewDelegate, UICol
                         let gameViewModel = GameViewModel(game: gameModel)
                         
                         cell.name.text = gameViewModel.name
-                        cell.viewersCount.text = gameViewModel.viewerCountText
+                        cell.viewerCount.text = gameViewModel.viewerCountText
                     }
                 }
             }

@@ -12,7 +12,7 @@ class GameCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var viewersCount: UILabel!
+    @IBOutlet weak var viewerCount: UILabel!
     
     override func awakeFromNib() {
         
