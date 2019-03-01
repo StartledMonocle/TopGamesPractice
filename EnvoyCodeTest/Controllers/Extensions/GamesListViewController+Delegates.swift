@@ -42,20 +42,18 @@ extension GamesListViewController: UICollectionViewDelegate, UICollectionViewDat
                     
                     DispatchQueue.main.async {
                         
-                        let gameModel = Game(id: game.id, name: game.name, image: imageURL, viewerCount: game.viewerCount)
-                        let gameViewModel = GameViewModel(game: gameModel)
+                        let gameViewModel = GameViewModel(game: game)
                         
-                        cell.image.image = image
                         cell.name.text = gameViewModel.name
                         cell.viewerCount.text = gameViewModel.viewerCountText
+                        cell.gameImage.image = image
                     }
                 }
                 else {  //game image doesn't exist, just display game name and viewer count
                     
                     DispatchQueue.main.async {
                         
-                        let gameModel = Game(id: game.id, name: game.name, image: nil, viewerCount: game.viewerCount)
-                        let gameViewModel = GameViewModel(game: gameModel)
+                        let gameViewModel = GameViewModel(game: game)
                         
                         cell.name.text = gameViewModel.name
                         cell.viewerCount.text = gameViewModel.viewerCountText

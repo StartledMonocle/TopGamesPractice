@@ -40,14 +40,8 @@ class GamesListViewController: UIViewController {
             
             DispatchQueue.main.async() {
                 
-                //reload collection view to set the collection view size to the total number of Top Games from Twitch
+                //reload collection view to set the collection view size to the total number of games being streamed on Twitch
                 self.gamesCollectionView.reloadData()
-                
-                //request top 20 games from twitch and display in collection view
-                for i in 0...20 {
-                    let indexPath = IndexPath(row: i, section: 0)
-                    Network().requestGame(forIndex: indexPath, gamesArray: GamesListViewController.gamesArray)
-                }
             }
         }
     }

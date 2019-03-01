@@ -13,6 +13,8 @@
 		03206AA41F948F3000FFB69A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03206AA31F948F3000FFB69A /* Assets.xcassets */; };
 		03206AA71F948F3000FFB69A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03206AA51F948F3000FFB69A /* LaunchScreen.storyboard */; };
 		03206AB21F948F3000FFB69A /* EnvoyCodeTest-Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03206AB11F948F3000FFB69A /* EnvoyCodeTest-Tests.swift */; };
+		45035E902229253600BE5789 /* Network+Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45035E8F2229253600BE5789 /* Network+Tasks.swift */; };
+		45035E942229269C00BE5789 /* Network+URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45035E932229269C00BE5789 /* Network+URLS.swift */; };
 		45157C8C22138475008F38A0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45157C8B22138475008F38A0 /* Network.swift */; };
 		4541FBAE2226253C003074E5 /* GamesListViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541FBAD2226253C003074E5 /* GamesListViewController+Delegates.swift */; };
 		455E3C65222450D000486C27 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E3C64222450D000486C27 /* GameViewModel.swift */; };
@@ -44,6 +46,8 @@
 		03206AAD1F948F3000FFB69A /* EnvoyCodeTest-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EnvoyCodeTest-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03206AB11F948F3000FFB69A /* EnvoyCodeTest-Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvoyCodeTest-Tests.swift"; sourceTree = "<group>"; };
 		03206AB31F948F3000FFB69A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45035E8F2229253600BE5789 /* Network+Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Tasks.swift"; sourceTree = "<group>"; };
+		45035E932229269C00BE5789 /* Network+URLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+URLS.swift"; sourceTree = "<group>"; };
 		45157C8B22138475008F38A0 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		4541FBAD2226253C003074E5 /* GamesListViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GamesListViewController+Delegates.swift"; sourceTree = "<group>"; };
 		455E3C64222450D000486C27 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -100,7 +104,6 @@
 				4584036E220B66A000983F2B /* Controllers */,
 				45840395220FBE1A00983F2B /* Models */,
 				45157C8A22138460008F38A0 /* Network */,
-				455E3C632224500700486C27 /* ViewModels */,
 				45840371220B670500983F2B /* Views */,
 			);
 			path = EnvoyCodeTest;
@@ -115,10 +118,20 @@
 			path = "EnvoyCodeTest-Tests";
 			sourceTree = "<group>";
 		};
+		45035E8E2229250600BE5789 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				45035E8F2229253600BE5789 /* Network+Tasks.swift */,
+				45035E932229269C00BE5789 /* Network+URLS.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		45157C8A22138460008F38A0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				45157C8B22138475008F38A0 /* Network.swift */,
+				45035E8E2229250600BE5789 /* Extensions */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -154,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				45840396220FBE3100983F2B /* Game.swift */,
+				455E3C632224500700486C27 /* ViewModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,11 +289,13 @@
 				455E3C65222450D000486C27 /* GameViewModel.swift in Sources */,
 				45D1AF0B222629EC006CE3C7 /* GamesListViewController+ViewSetup.swift in Sources */,
 				45157C8C22138475008F38A0 /* Network.swift in Sources */,
+				45035E902229253600BE5789 /* Network+Tasks.swift in Sources */,
 				45D1AF0E22262ABB006CE3C7 /* GamesListViewController+Notifications.swift in Sources */,
 				4584038D220CDD7E00983F2B /* GameCollectionViewCell.swift in Sources */,
 				4541FBAE2226253C003074E5 /* GamesListViewController+Delegates.swift in Sources */,
 				03206A9F1F948F3000FFB69A /* GamesListViewController.swift in Sources */,
 				03206A9D1F948F3000FFB69A /* AppDelegate.swift in Sources */,
+				45035E942229269C00BE5789 /* Network+URLS.swift in Sources */,
 				45840397220FBE3100983F2B /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

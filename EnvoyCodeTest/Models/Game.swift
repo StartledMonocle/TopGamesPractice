@@ -11,12 +11,12 @@ import UIKit
 
 public class Game {
     
-    public var id: Int32
-    public var name: String
+    public var id: Int32 = 0
+    public var name: String?
     public var imageURL: URL?
-    public var viewerCount: Int
+    public var viewerCount: Int = 0
     
-    public init(id: Int32, name: String, image: URL?, viewerCount: Int) {
+    public init(id: Int32, name: String?, image: URL?, viewerCount: Int) {
         
         self.id = id
         self.name = name

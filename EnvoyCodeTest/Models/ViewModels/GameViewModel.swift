@@ -17,14 +17,28 @@ public class GameViewModel {
         self.game = game
     }
     
-    public var name: String {
+    public var name: String? {
         
-        return game.name
+        if let name = game.name {
+        
+            return name
+        }
+        else {
+            
+            return nil
+        }
     }
     
     public var imageURL: URL? {
         
-        return game.imageURL
+        if let imageURL = game.imageURL {
+            
+            return imageURL
+        }
+        else {
+            
+            return nil
+        }
     }
     
     public var viewerCountText: String {

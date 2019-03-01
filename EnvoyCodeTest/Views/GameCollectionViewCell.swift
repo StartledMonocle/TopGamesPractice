@@ -10,7 +10,7 @@ import UIKit
 
 class GameCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var viewerCount: UILabel!
     
